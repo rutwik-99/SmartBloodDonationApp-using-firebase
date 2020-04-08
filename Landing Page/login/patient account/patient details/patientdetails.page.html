@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landingpage/login/patientaccount"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list lines>
+            <ion-item>
+              <ion-label position="floating">Enter Name</ion-label>
+              <ion-input type="text" ngModel name="name" placeholder="{{ data[0] }}" required autocomplete autocorrect></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Enter Age</ion-label>
+              <ion-input type="number" ngModel name="age" placeholder="{{ data[1] }}" required minlength="2" maxlength="2"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Phone number</ion-label>
+              <ion-input type="tel" ngModel name="phone_number" placeholder="{{ data[2] }}" required minlength="10" maxlength="10"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label positon="floating">Blood group</ion-label>
+              <ion-select multiple="false" cancelText="Cancel" okText="Done"  ngModel name="blood_group" placeholder="{{ data[3] }}" required>
+                <ion-select-option value="A+">A+</ion-select-option>
+                <ion-select-option value="A-">A-</ion-select-option>
+                <ion-select-option value="B+">B+</ion-select-option>
+                <ion-select-option value="B-">B-</ion-select-option>
+                <ion-select-option value="AB+">AB+</ion-select-option>
+                <ion-select-option value="AB-">AB-</ion-select-option>
+                <ion-select-option value="O+">O+</ion-select-option>
+                <ion-select-option value="O-">O-</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Select the diseases that you have</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Done"  ngModel name="diseases" placeholder="{{ data[4] }}" required>
+                <ion-select-option value="Thalassemia">Thalassemia</ion-select-option>
+                <ion-select-option value="Anemia">Anemia</ion-select-option>
+                <ion-select-option value="Cancer">Cancer</ion-select-option>
+                <ion-select-option value="Kidney Disease">Kidney Disease</ion-select-option>
+                <ion-select-option value="Liver Disease">Liver Disease</ion-select-option>
+                <ion-select-option value="Severe infection">Severe infection</ion-select-option>
+                <ion-select-option value="Sickle cell disease">Sickle cell disease</ion-select-option>
+                <ion-select-option value="Thrombocytopenia">Thrombocytopenia</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Do you require a mediator ?</ion-label>
+              <ion-select multiple="false" cancelText="Cancel" okText="Done"  ngModel name="mediator_required" placeholder="{{ data[5] }}" required>
+                <ion-select-option value="Yes">Yes</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none">
+              <p>If you don't require a mediator, ignore the next few fields</p>
+            </ion-item>
+            <ion-item>
+              <ion-list>
+                <ion-list-header>Mediator Details</ion-list-header>
+                <ion-item>
+                  <ion-label position="floating">Enter Name</ion-label>
+                  <ion-input type="text" ngModel name="med_name" placeholder="{{ data[6] }}" autocomplete autocorrect></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Phone number</ion-label>
+                  <ion-input type="tel" ngModel name="med_phone_number" placeholder="{{ data[7] }}" required minlength="10" maxlength="10"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="email" ngModel name="med_email" email #emailcon="ngModel" placeholder="{{ data[8] }}" ></ion-input>
+                </ion-item>
+                <ion-item *ngIf="!emailcon.valid && emailcon.touched">
+                  <ion-label>Should be a valid email id</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Home Address</ion-label>
+              <ion-textarea rows="3" ngModel name="home_add" placeholder="{{ data[9] }}" required></ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Clinic Address</ion-label>
+              <ion-textarea rows="3" ngModel name="clinic_add" placeholder="{{ data[10] }}" required></ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" ngModel name="password" required minlength="9" #passcon="ngModel" placeholder="{{ data[11] }}" ></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!passcon.valid && passcon.touched">
+              <ion-label>Password should be 9 characters long</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Latitude</ion-label>
+              <ion-input type="number" ngModel name="latitude" placeholder="{{ data[12] }}" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Longitude</ion-label>
+              <ion-input type="number" ngModel name="longitude" placeholder="{{ data[13] }}" required></ion-input>
+            </ion-item>
+          </ion-list> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-button color="secondary" type="submit" expand="block">Submit</ion-button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
