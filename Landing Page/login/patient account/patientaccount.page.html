@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landingpage/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-title>Welcome {{ data[0] }} !</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3"><h3><u>Personal Info</u></h3></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Unique ID: </b>{{ data[14] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Name: </b>{{ data[0] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Age: </b>{{ data[1] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Contact number: </b>{{ data[2] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Blood Group: </b>{{ data[3] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Ailments :</b> 
+        <ul>
+          <li *ngFor="let disease of data[4]">
+            {{ disease }}
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Mediator required : </b>{{ data[5] }}
+        <ul *ngIf="data[5]==='Yes'">
+          <li>
+            <b>Mediator name : </b>{{ data[6] }}
+          </li>
+          <li>
+            <b>Mediator contact number : </b>{{ data[7] }}
+          </li>
+          <li>
+            <b>Mediator email address : </b>{{ data[8] }}
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Clinic address : </b>{{ data[9] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <b>Home address : </b>{{ data[10] }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="search_patient_account()">Search for Donors</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="edit()">Edit details</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
