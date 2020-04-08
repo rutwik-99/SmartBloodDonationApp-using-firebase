@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Blood App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col  size-sm="6" offset-sm="3">
+        <ion-card button="true" color="primary" [routerLink]="['./login']">
+          <ion-card-header>
+            <ion-card-subtitle>For registered donors and patients</ion-card-subtitle>
+            <ion-card-title>Login</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Log in using your name and password
+          </ion-card-content>
+        </ion-card>
+      </ion-col >
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card button="true" color="primary" [routerLink]="['./donorreg']">
+          <ion-card-header>
+            <ion-card-subtitle>For new Donors</ion-card-subtitle>
+            <ion-card-title>Donor Registration</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Fill in the your basic details and register as a Donor !
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card button="true" color="primary" [routerLink]="['./patientreg']">
+          <ion-card-header>
+            <ion-card-subtitle>For new Patients</ion-card-subtitle>
+            <ion-card-title>Patient Registration</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Fill in the your basic details and register as a receiver !
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
